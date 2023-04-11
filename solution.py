@@ -8,7 +8,7 @@ def solution(x: np.array, y: np.array) -> bool:
     import scipy
     import scipy.stats as stats
 
-    res = scipy.stats.ks_2samp(x, y, alternative='two-sided', method='auto')
+    res = stats.cramervonmises_2samp(x, y)
     pvalue = res.pvalue
     if pvalue > 0.07:
       return False
